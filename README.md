@@ -1,1 +1,2 @@
-# vue_js_testing
+# 02-vue-basics
+ 

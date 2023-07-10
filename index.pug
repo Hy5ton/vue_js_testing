@@ -1,0 +1,24 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    title &Tcy;&iecy;&scy;&tcy;&ocy;&vcy;&ycy;&jcy; &scy;&acy;&jcy;&tcy;
+    link(rel='stylesheet' href='theme.css')
+#app.container
+    .card
+        h1 {{ title }}
+        .form-control
+            input(type='text' v-bind:placeholder='placeholderString' v-bind:value='inputValue' v-on:input='inputChangeHandler' v-on:keypress.enter='addNewNote')
+        button.btn(v-on:click='addNewNote') Добавить число
+        button.btn2(v-on:click="loadNote") Добавить 5 псевдослучайных чисел
+        hr
+        ul.list(v-if:='notes.length !== 0')
+            li.list-item(v-for='(note, index) in notes')
+                | ({{index + 1}}) {{toUpperCase(note)}}
+                button.btn.danger(v-on:click='removeNote(index, $event)') &Ucy;&dcy;&acy;&lcy;&icy;&tcy;&softcy;
+            hr
+            li
+                strong &Ocy;&bcy;&shchcy;&iecy;&iecy; &kcy;&ocy;&lcy;&icy;&chcy;&iecy;&scy;&tcy;&vcy;&ocy; &zcy;&acy;&mcy;&iecy;&tcy;&ocy;&kcy;: {{notes.length}}
+        div(v-else='')
+            | &Zcy;&acy;&mcy;&iecy;&tcy;&ocy;&kcy; &pcy;&ocy;&kcy;&acy; &ncy;&iecy;&tcy;
+script(src='https://unpkg.com/vue@next')
+script(src='app.js')
